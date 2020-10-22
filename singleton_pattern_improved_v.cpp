@@ -1,4 +1,5 @@
 #include <iostream>
+#include <boost/thread/mutex.hpp>
 
 using namespace std;
 
@@ -20,7 +21,10 @@ private:
     const Singleton &operator=(const Singleton &);
 };
 
+// thread safe singleton
 Singleton &Singleton::getInstance() {
+    boost::mutex mtx;
+    boost::mutex::scoped_lock lock(mtx);
     static Singleton instance;
     return instance;
 }
