@@ -14,4 +14,5 @@ FIND_PACKAGE(Boost 1.67.0 REQUIRED)
 #add_executable(design_patterns creational/singleton_pattern_improved_v.cpp)
 
 # structural
-add_executable(design_patterns structural/adapter_pattern.cpp)
+#add_executable(design_patterns structural/adapter_pattern.cpp)
+add_executable(design_patterns structural/bridge_pattern.cpp)
