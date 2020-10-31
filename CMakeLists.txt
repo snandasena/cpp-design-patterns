@@ -16,4 +16,5 @@ FIND_PACKAGE(Boost 1.67.0 REQUIRED)
 # structural
 #add_executable(design_patterns structural/adapter_pattern.cpp)
 #add_executable(design_patterns structural/bridge_pattern.cpp)
-add_executable(design_patterns structural/composite_pattern01.cpp)
+#add_executable(design_patterns structural/composite_pattern01.cpp)
+add_executable(design_patterns structural/composite_pattern02.cpp)
