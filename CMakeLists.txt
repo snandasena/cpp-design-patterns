@@ -1,8 +1,16 @@
 cmake_minimum_required(VERSION 3.10)
 project(design_patterns)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 FIND_PACKAGE(Boost 1.67.0 REQUIRED)
+
+set(CMAKE_CXX_FLAGS "-fsanitize=address -ggdb3 -Wall -Wextra")
+add_definitions(-std=c++17)
+add_definitions(-DCMAKE_BUILD_TYPE=Debug)
+
+set(CXX_FLAGS "-fsanitize=address -ggdb3 -Wall -Wextra")
+
+add_subdirectory(Udemy)
 
 # creational
 #add_executable(design_patterns main.cpp)
@@ -18,4 +26,4 @@ FIND_PACKAGE(Boost 1.67.0 REQUIRED)
 #add_executable(design_patterns structural/bridge_pattern.cpp)
 #add_executable(design_patterns structural/composite_pattern01.cpp)
 #add_executable(design_patterns structural/composite_pattern02.cpp)
-add_executable(design_patterns structural/decorator_pattern.cpp)
+#add_executable(design_patterns structural/decorator_pattern.cpp)
