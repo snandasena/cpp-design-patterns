@@ -4,13 +4,14 @@ project(design_patterns)
 set(CMAKE_CXX_STANDARD 17)
 FIND_PACKAGE(Boost 1.67.0 REQUIRED)
 
-set(CMAKE_CXX_FLAGS "-fsanitize=address -ggdb3 -Wall -Wextra")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -ggdb3 -Wall -Wextra")
+
 add_definitions(-std=c++17)
 add_definitions(-DCMAKE_BUILD_TYPE=Debug)
 
-set(CXX_FLAGS "-fsanitize=address -ggdb3 -Wall -Wextra")
-
 add_subdirectory(Udemy)
+
+add_subdirectory(app)
 
 # creational
 #add_executable(design_patterns main.cpp)
