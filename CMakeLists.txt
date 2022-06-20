@@ -11,6 +11,8 @@ add_definitions(-DCMAKE_BUILD_TYPE=Debug)
 
 add_subdirectory(Udemy)
 
+add_subdirectory(app)
+
 # creational
 #add_executable(design_patterns main.cpp)
 #add_executable(design_patterns  creational/abstract_factory.cpp)

@@ -18,6 +18,10 @@ protected:
 
 public:
     PersonBuilderBase(Person &person);
+
+    PersonAddressBuilder lives() const;
+
+    PersonJobBuilder works() const;
 };
 
 class PersonBuilder : public PersonBuilderBase
@@ -26,9 +30,10 @@ class PersonBuilder : public PersonBuilderBase
 public:
     PersonBuilder();
 
-    PersonAddressBuilder lives() const;
-
-    PersonJobBuilder works() const;
+    operator Person() const
+    {
+        return std::move(person);
+    }
 };
 
 

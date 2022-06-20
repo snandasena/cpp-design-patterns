@@ -7,13 +7,13 @@
 #include "PersonJobBuilder.h"
 
 
-PersonBuilderBase::PersonBuilderBase(Person &person) : person(person) {}
+PersonBuilderBase::PersonBuilderBase(Person &p) : person{p}{}
 
-PersonBuilder::PersonBuilder() : PersonBuilderBase(p) {}
+PersonBuilder::PersonBuilder() : PersonBuilderBase{p} {}
 
 PersonAddressBuilder PersonBuilder::lives() const
 {
-    return PersonAdressBuilder{person};
+    return PersonAddressBuilder{person};
 }
 
 PersonJobBuilder PersonBuilder::works() const
