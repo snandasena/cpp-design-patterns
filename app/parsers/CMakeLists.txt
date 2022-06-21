@@ -6,6 +6,9 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 set(HEADERS
         ${PROJECT_SOURCE_DIR}/include/parsers/JsonParser.h
+        ${PROJECT_SOURCE_DIR}/include/parsers/XmlParser.h
+        ${PROJECT_SOURCE_DIR}/include/parsers/ParsersFactory.h
+        ${PROJECT_SOURCE_DIR}/include/parsers/ValidatedReportParser.h
         )
 
 
