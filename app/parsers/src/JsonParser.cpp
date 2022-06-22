@@ -30,12 +30,13 @@ namespace parsers
 
     std::optional<types::User> JsonParser::parseCredentials(const std::string &rawCredentials) const try
     {
-        if (const auto json = nlohmann::json::parse(rawCredentials))
+        if (const auto json = nlohmann::json::parse(rawCredentials); !json.empty())
         {
             return types::User
                     {
                             {json.at("login")},
-                            {json.at("password")}
+                            {json.at("password")},
+                            {}
                     };
         }
         return std::nullopt;

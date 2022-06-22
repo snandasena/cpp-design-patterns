@@ -1,5 +1,7 @@
 project(Parsers)
 
+add_subdirectory(test)
+
 find_package(Boost REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})

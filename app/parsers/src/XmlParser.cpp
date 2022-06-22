@@ -59,9 +59,14 @@ namespace parsers
             return types::User
                     {
                             {getFromXml<std::string>(root, "login")},
-                            {getFromXml<std::string>(root, "password")}
-                    }
+                            {getFromXml<std::string>(root, "password")},
+                            {}
+                    };
         }
-
+        return std::nullopt;
+    } catch (const std::exception &e)
+    {
+        std::cerr << __FILE__ << ' ' << e.what() << '\n';
+        return std::nullopt;
     }
 }
