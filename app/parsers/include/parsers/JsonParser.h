@@ -10,7 +10,7 @@
 
 namespace parsers
 {
-    class JsonParser : public IReportParser, public ICredentialParser
+    class JsonParser : public IReportParser, public ICredentialsParser
     {
     public:
         std::optional <types::Report> parseReport(const std::string &) const override;
