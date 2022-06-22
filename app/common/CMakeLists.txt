@@ -17,4 +17,4 @@ set(SOURCES
 
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/inc;include)
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
