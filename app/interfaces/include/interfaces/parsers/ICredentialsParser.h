@@ -15,7 +15,7 @@ namespace parsers
     class ICredentialsParser
     {
     public:
-        virtual ~ICredentialParser() = default;
+        virtual ~ICredentialsParser() = default;
 
         virtual std::optional<types::User> parseCredentials(const std::string &) const = 0;
     };

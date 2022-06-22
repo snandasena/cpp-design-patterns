@@ -17,7 +17,7 @@ namespace parsers
     public:
         virtual ~IReportParser() = default;
 
-        virtual std::optional<types::Report> parseRepost(const std::string &) const = 0;
+        virtual std::optional<types::Report> parseReport(const std::string &) const = 0;
     };
 }
 

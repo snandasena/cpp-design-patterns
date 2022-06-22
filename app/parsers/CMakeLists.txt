@@ -14,6 +14,9 @@ set(HEADERS
 
 set(SOURCES
         ${PROJECT_SOURCE_DIR}/src/JsonParser.cpp
+        ${PROJECT_SOURCE_DIR}/src/ParsersFactory.cpp
+        ${PROJECT_SOURCE_DIR}/src/XmlParser.cpp
+        ${PROJECT_SOURCE_DIR}/src/ValidatedReportParser.cpp
         )
 
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
