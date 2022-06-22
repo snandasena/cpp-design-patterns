@@ -10,10 +10,10 @@
 
 namespace constants
 {
-    std::string OK{"OK"};
-    std::string NOK{"NOK"};
-
-    const std::unordered_set<std::string> validTaxNames{
+    const std::string OK{"OK"};
+    const std::string NOK{"NOK"};
+// clang-format off
+    const std::unordered_set<std::string> validTaxNames = {
             "corporate income tax",
             "individual income tax",
             "value added tax",
@@ -21,6 +21,7 @@ namespace constants
             "property tax",
             "exit tax"
     };
+// clang-format on
 }
 
 #endif //DESIGN_PATTERNS_CONSTANTS_H
