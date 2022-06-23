@@ -48,6 +48,14 @@ namespace parsers
 
     TEST_F(ValidatedReportParserTest, reportValidationSucceeds)
     {
-//        ASSERT_NE(sut.parseReport(validReport), std::nullopt);
+        ASSERT_NE(sut.parseReport(validReport), std::nullopt);
+    }
+
+    TEST_F(ValidatedReportParserTest, reportValidationFails)
+    {
+        for (const auto &item: invalidReports)
+        {
+            ASSERT_EQ(sut.parseReport(item), std::nullopt);
+        }
     }
 }
