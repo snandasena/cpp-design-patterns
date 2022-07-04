@@ -78,14 +78,30 @@ namespace servers
             stop();
             std::cerr << __FILE__ << " Failed to login a user for tax reporting\n";
         }
-    }catch (const std::exception &e)
+    } catch (const std::exception &e)
     {
-        std::cerr<<__FILE__<<' '<< __LINE__ <<' '<<e.what()<<'\n';
+        std::cerr << __FILE__ << ' ' << __LINE__ << ' ' << e.what() << '\n';
     }
 
 
-    void ReportSession::stop()
+    void ReportSession::stop() try
     {
-
+        boost::system::error_code error;
+        sock.shutdown(boost::asio::ip::tcp::socket::shutdown_both);
+        if (!error)
+        {
+            sock.close(error);
+            if (error)
+            {
+                std::cerr << __FILE__ << " Error when closing socket " << error << '\n';
+            }
+        }
+        else
+        {
+            std::cerr << __FILE__ << " Error when shutting down socket " << error << '\n';
+        }
+    } catch (const std::exception &e)
+    {
+        std::cerr << __FILE__ << " " << __LINE__ << " " << e.what() << std::endl;
     }
 }
