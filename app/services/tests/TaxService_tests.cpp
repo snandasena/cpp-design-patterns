@@ -43,5 +43,20 @@ TEST_F(TaxServiceTests, whenReportParsingAndAuthorizationSucceed_returnOK)
 {
     EXPECT_CALL(authMock, isAuthorized(user.login, report.payer)).WillOnce(Return(true));
     EXPECT_CALL(parserMock, parseReport(rawReport)).WillOnce(Return(report));
-    ASSERT_EQ(sut.onReportRequest(rawReport),OK);
+    ASSERT_EQ(sut.onReportRequest(rawReport), OK);
+}
+
+
+TEST_F(TaxServiceTests, whenReportParsingFails_returnNOK)
+{
+    EXPECT_CALL(parserMock, parseReport(rawReport)).WillOnce(Return(std::nullopt));
+    EXPECT_CALL(authMock, isAuthorized(user.login, report.payer)).Times(0);
+    ASSERT_EQ(sut.onReportRequest(rawReport), NOK);
+}
+
+TEST_F(TaxServiceTests, whenAuthorizationFails_returnNOK)
+{
+    EXPECT_CALL(parserMock, parseReport(rawReport)).WillOnce(Return(report));
+    EXPECT_CALL(authMock, isAuthorized(user.login, report.payer)).WillOnce(Return(false));
+    ASSERT_EQ(sut.onReportRequest(rawReport), NOK);
 }
